@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do Application</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+        <div class="container">
+            <h1>To Do List Application</h1>
+            <form action="/add" method="post">
+                <label for="name">
+                    <input type="text" id="name" name="task_name" placeholder="Name">
+                    <span>Task name</span>
+                </label>
+                <button type="submit">Add task</button>
+            </form>
+
+            <div class="content">
+                {%for todo in todo_list%}
+                {%if todo.task_done == False%}
+                <div class="data">
+                {%else%}
+                <div class="data done">
+                {%endif%}
+                    <div>{{todo.task_id}}</div>
+                    <div>{{todo.task_name}}</div>
+                    {%if todo.task_done == False%}
+                    <div>Not done</div>
+                    <div id="buttonDone"><a href="/update/{{todo.task_id}}">Done</a></div>
+                    {%else%}
+                    <div>Done</div>
+                    <div id="buttonReset"><a href="/update/{{todo.task_id}}">Reset</a></div>
+                    {%endif%}
+                    <div id="buttonDelete"><a href="/delete/{{todo.task_id}}">Delete</a></div> 
+                </div>
+                {%endfor%}
+            </div>
+        </div>
+
+</body>
+</html>

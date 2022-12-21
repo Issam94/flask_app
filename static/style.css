@@ -1,0 +1,112 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    min-height:100vh;
+    display:grid;
+    place-content:start center;
+    font-family:sans-serif;
+    color:#6b6b6b;
+}
+
+.content{
+    height: 250px;
+    overflow: auto;
+}
+
+form{
+    width:90vw;
+    max-width:768px;
+    border:1px solid #ddd;
+    padding:3vw;
+    display:flex;
+    flex-direction:column;
+    border-radius:5px;
+    margin-bottom: 50px;
+}
+
+label{
+    margin-bottom:15px;
+    position:relative;
+    border-bottom:1px solid #ddd;
+}
+input{
+    width:100%;
+    padding:10px 0px;
+    margin-top:20px;
+    border:none;
+    outline:none;
+}
+input::placeholder{
+    opacity:0;
+}
+span{
+    position:absolute;
+    top:0;
+    left:0;
+    transform:translateY(30px);
+    font-size:0.825em;
+    transition-duration:300ms;
+}
+button{
+    padding:15px 0px; 
+    margin-top:20px;
+    background:purple;
+    color:#fff;
+    border:1px solid purple;
+    cursor:pointer;
+    border-radius:3px;
+}
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    color:purple;
+    transform:translateY(0px);
+}
+
+h1{
+    margin: 50px 0px;
+    text-align: center;
+}
+
+.data{
+    display: flex;
+    justify-content: space-around;
+    border: solid 1px purple;
+    padding: 20px;
+    margin-bottom: 10px;
+    color: black;
+    font-size: 20px;
+}
+
+.done{
+    background-color: rgb(109, 159, 109);
+}
+
+#buttonDone{
+    background-color: rgb(109, 159, 109);
+    border-radius: 25px;
+    text-align: center;
+    width: 70px;
+}
+
+#buttonReset{
+    background-color: purple;
+    border-radius: 25px;
+    text-align: center;
+    width: 70px;
+}
+
+a:link, a:visited, a:hover, a:active{
+    color: black;
+    text-decoration: none;
+}
+
+#buttonDelete{
+    background-color: red;
+    border-radius: 25px;
+    text-align: center;
+    width: 70px;
+}
